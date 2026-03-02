@@ -1,2 +1,0 @@
-# Candeflix
-Buscador de películas
