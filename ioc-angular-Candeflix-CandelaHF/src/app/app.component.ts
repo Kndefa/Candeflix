@@ -10,4 +10,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ioc-angular-Candeflix-CandelaHF';
+
+  constructor() {
+    console.log('Candeflix ha inicializado correctamente!');
+  }
 }
