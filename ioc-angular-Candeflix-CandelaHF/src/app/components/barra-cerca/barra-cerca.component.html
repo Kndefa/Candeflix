@@ -1,1 +1,22 @@
-<p>barra-cerca works!</p>
+<label for="inputCerca" class="visually-hidden">Cerca una pel·lícula:</label>
+<input
+  type="text"
+  #inputRef="ngModel"
+  placeholder="Cerca una pel·lícula..."
+  class="input-cerca"
+  [(ngModel)]="textCercar"
+  minlength="3"
+/>
+<button
+  (click)="cercarClick()"
+  class="btn-cerca"
+  [disabled]="textCercar && textCercar.length > 0 && textCercar.length < 3"
+>
+  Cercar
+</button>
+<p
+  *ngIf="textCercar && textCercar.length > 0 && textCercar.length < 3"
+  class="error-message"
+>
+  El text ha de tenir almenys 3 caràcters.
+</p>

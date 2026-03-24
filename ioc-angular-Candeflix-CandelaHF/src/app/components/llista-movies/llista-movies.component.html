@@ -1,1 +1,13 @@
-<app-targeta-movie [movie]="movie" *ngFor="let movie of movies"></app-targeta-movie>
+<div class="search-container">
+  <app-barra-cerca (textCercarEvent)="onCercarMovies($event)"></app-barra-cerca>
+</div>
+<div class="IfLlista" *ngIf="moviesFiltrades.length > 0; else noMovies">
+    <div class="lista" *ngFor ="let movie of moviesFiltrades; trackBy: trackByMovieId">
+        <app-targeta-movie [movie]="movie"></app-targeta-movie>
+    </div>
+</div>
+
+<ng-template #noMovies>
+    <p>No hi ha pel·lícules disponibles.</p>
+</ng-template>
+

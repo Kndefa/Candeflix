@@ -1,4 +1,9 @@
-<h3>{{ movie?.name }}</h3>
-<img [src]="movie?.imageUrl" alt="{{ movie?.name }}" />
-<p>{{movie?.overview}}</p>
-<p>Puntuación: {{movie?.puntuation}}</p>
+<div class="movie-card">
+  <img [src]="movie?.imageUrl" alt="{{ movie?.name }}" />
+
+  <div class="movie-overlay">
+    <h3>{{ movie?.name | uppercase }}</h3>
+    <p class="movie-overview">{{ movie?.overview }}</p>
+    <p class="movie-score">⭐ {{ movie?.puntuation }}</p>
+  </div>
+</div>

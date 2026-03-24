@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TargetaMovieComponent } from "./components/targeta-movie/targeta-movie.component";
+import { LlistaMoviesComponent } from './components/llista-movies/llista-movies.component';
+import { BarraCercaComponent } from "./components/barra-cerca/barra-cerca.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TargetaMovieComponent],
+  imports: [LlistaMoviesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
