@@ -13,10 +13,6 @@ export class BarraCercaComponent {
   public textCercar!: string;
   @Output() textCercarEvent = new EventEmitter<string>();
 
-  // onTextCercar(texto: string): void {
-  //   this.textCercarEvent.emit(texto);
-  // }
-
   cercarClick(): void {
     this.textCercarEvent.emit(this.textCercar);
   }
