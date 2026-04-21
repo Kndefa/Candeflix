@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { Movie } from '../../models/element.model';
+import { Component, inject, Input } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
+import { MovieCataleg } from '../../models';
+import { PreferitsService } from '../../services/preferits.service';
 
 @Component({
   selector: 'app-targeta-movie',
@@ -10,5 +11,18 @@ import { UpperCasePipe } from '@angular/common';
   styleUrl: './targeta-movie.component.scss'
 })
 export class TargetaMovieComponent {
-  @Input() movie?: Movie;
+  @Input() movie?: MovieCataleg;
+  private preferitsService = inject(PreferitsService);
+
+  get esPreferit() {
+    return this.movie ? this.preferitsService.esPreferit(this.movie.id) : false;
+  }
+
+  togglePreferit(): void {
+    if (this.esPreferit) {
+      this.preferitsService.eliminarPreferit(this.movie!.id);
+    } else {
+      this.preferitsService.afegirPreferit(this.movie!.id, this.movie!.titol);
+    }
+  }
 }

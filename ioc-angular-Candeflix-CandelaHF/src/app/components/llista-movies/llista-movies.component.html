@@ -1,13 +1,60 @@
-<div class="search-container">
-  <app-barra-cerca (textCercarEvent)="onCercarMovies($event)"></app-barra-cerca>
+<!-- <div class="search-container">
+    <app-barra-cerca (textCercarEvent)="onCercarMovies($event)"></app-barra-cerca>
 </div>
-<div class="IfLlista" *ngIf="moviesFiltrades.length > 0; else noMovies">
-    <div class="lista" *ngFor ="let movie of moviesFiltrades; trackBy: trackByMovieId">
+
+
+
+<div class="estat-carregant" *ngIf="carregant()">
+    <div class="spinner"></div>
+    <p>
+        Carregant elements...
+    </p>
+</div>
+
+<div class="error-message" *ngIf="error()">
+    <p >
+        {{ error() }}
+    </p>
+</div>
+
+
+<div class="IfLlista" *ngIf="moviesFiltrades().length > 0; else noMovies">
+    <div class="lista" *ngFor="let movie of moviesFiltrades(); trackBy: trackByMovieId">
         <app-targeta-movie [movie]="movie"></app-targeta-movie>
     </div>
 </div>
 
 <ng-template #noMovies>
     <p>No hi ha pel·lícules disponibles.</p>
+</ng-template> -->
+<!-- <div class="search-container">
+    <app-barra-cerca (textCercarEvent)="onCercarMovies($event)"></app-barra-cerca>
+</div> -->
+
+<!-- LOADING -->
+<div *ngIf="carregant(); else notLoading" class="estat-carregant">
+    <div class="spinner"></div>
+    <p>Carregant pel·lícules...</p>
+</div>
+
+<ng-template #notLoading>
+    <!-- ERROR -->
+    <div *ngIf="error(); else content" class="error-container">
+        <p>{{ error() }}</p>
+        <button (click)="moviesService.obtenirPopulars()">Reintentar</button>
+    </div>
+
+    <ng-template #content>
+        <div class="IfLlista" *ngIf="teMovies(); else empty">
+            <div class="lista" *ngFor="let movie of moviesFiltrades(); trackBy: trackByMovieId">
+                <app-targeta-movie [movie]="movie"></app-targeta-movie>
+            </div>
+        </div>
+    </ng-template>
+
 </ng-template>
 
+<!-- EMPTY -->
+<ng-template #empty>
+    <p>No hi ha pel·lícules disponibles.</p>
+</ng-template>

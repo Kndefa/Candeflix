@@ -14,6 +14,6 @@ export class BarraCercaComponent {
   @Output() textCercarEvent = new EventEmitter<string>();
 
   cercarClick(): void {
-    this.textCercarEvent.emit(this.textCercar);
+    this.textCercarEvent.emit(this.textCercar || '');
   }
 }

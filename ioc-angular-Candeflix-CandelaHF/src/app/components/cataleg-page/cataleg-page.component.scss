@@ -1,0 +1,142 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 20px;
+    padding-bottom: 20px;
+    background: #141414;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #222;
+}
+
+
+.IfLlista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: flex-start;
+    padding: 0 20px 40px;
+}
+
+
+.lista {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .lista {
+        flex: 0 0 calc(50% - 18px);
+        max-width: calc(50% - 18px);
+    }
+}
+
+@media (min-width: 901px) {
+    .lista {
+        flex: 0 0 calc(33.333% - 18px);
+        max-width: calc(33.333% - 18px);
+    }
+}
+
+.IfLlista:has(> .lista:only-child) {
+    justify-content: center;
+}
+
+p {
+    padding: 40px 20px;
+    color: #aaa;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.estat-carregant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0;
+    min-height: 50vh;
+    background: #141414;
+
+    .spinner {
+        width: 55px;
+        height: 55px;
+        border: 4px solid #333;
+        border-top: 4px solid #e50914;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    p {
+        margin-top: 1rem;
+        color: #aaa;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* ANIMACIÓN SPINNER */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.error-container button {
+    background-color: #e50914; // rojo Netflix
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.error-container button:hover {
+    background-color: #f6121d;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.35);
+}
+
+.error-container button:active {
+    transform: scale(0.98);
+    box-shadow: none;
+}
+
+.error-container button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}

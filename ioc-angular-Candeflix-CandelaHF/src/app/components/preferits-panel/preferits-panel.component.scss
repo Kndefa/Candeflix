@@ -1,0 +1,196 @@
+$netflix-red: #e50914;
+$netflix-black: #141414;
+$netflix-card: #1f1f1f;
+
+
+.preferits-panel {
+  background-color: $netflix-black;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 1100px;
+  margin: 1rem auto;
+  font-family: 'Montserrat', sans-serif;
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+  }
+}
+
+
+.contingut-wrapper {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+
+@media (max-width: 768px) {
+  .contingut-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.llista-preferits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .preferit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: $netflix-card;
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: #2a2a2a;
+    }
+
+    &.seleccionat {
+      border-left-color: $netflix-red;
+      background: #333;
+    }
+
+    .preferit-info {
+      flex: 1;
+
+      h3 {
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
+      .notes-count {
+        font-size: 0.75rem;
+        color: $netflix-red;
+        font-weight: bold;
+      }
+
+      .data-afegit {
+        font-size: 0.75rem;
+        color: #aaa;
+      }
+    }
+
+    .btn-eliminar {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #aaa;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+
+.panel-notes {
+  background: #181818;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #2a2a2a;
+
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  .notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .btn-tancar {
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+
+  .notes-llista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nota-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #2b2b2b;
+    padding: 0.5rem;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+
+    .input-nota {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background: transparent;
+      border: none;
+      color: #fff;
+      padding: 0.5rem;
+      font-size: 1rem;
+
+      &:focus {
+        outline: none;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    .btn-eliminar-nota {
+      background: none;
+      border: none;
+      color: #777;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .btn-afegir-nota {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: $netflix-red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:disabled {
+      background: #333;
+      color: #666;
+      cursor: not-allowed;
+    }
+  }
+}

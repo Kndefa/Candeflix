@@ -1,0 +1,34 @@
+<div class="search-container">
+    <app-formulari-cerca />
+</div>
+
+<!-- LOADING -->
+<div *ngIf="carregant(); else notLoading" class="estat-carregant">
+    <div class="spinner"></div>
+    <p>Carregant pel·lícules...</p>
+</div>
+
+<ng-template #notLoading>
+    <!-- ERROR -->
+    <div *ngIf="error(); else content" class="error-container">
+        <p>{{ error() }}</p>
+        <!-- TODO: mejorar el reintenar (estilos) -->
+        <button (click)="moviesService.obtenirPopulars()">Reintentar</button>
+    </div>
+
+    <ng-template #content>
+        <div class="IfLlista" *ngIf="teMovies(); else empty">
+            <div class="lista" *ngFor="let movie of moviesFiltrades(); trackBy: trackByMovieId">
+                <app-targeta-movie [movie]="movie"></app-targeta-movie>
+            </div>
+        </div>
+    </ng-template>
+
+</ng-template>
+
+<!-- EMPTY -->
+<ng-template #empty>
+    <p>No hi ha pel·lícules disponibles.</p>
+</ng-template>
+
+<app-preferits-panel />

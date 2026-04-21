@@ -4,15 +4,17 @@ import { NgFor, NgIf } from '@angular/common';
 import { BarraCercaComponent } from "../barra-cerca/barra-cerca.component";
 import { MovieService } from '../../services/movie.service';
 import { MovieCataleg } from '../../models';
+import { FormulariCercaComponent } from '../formulari-cerca/formulari-cerca.component';
+import { PreferitsPanelComponent } from '../preferits-panel/preferits-panel.component';
 
 @Component({
-  selector: 'app-llista-movies',
+  selector: 'app-cataleg-page',
   standalone: true,
-  imports: [TargetaMovieComponent, NgFor, NgIf],
-  templateUrl: './llista-movies.component.html',
-  styleUrl: './llista-movies.component.scss'
+  imports: [TargetaMovieComponent, NgFor, NgIf, BarraCercaComponent, FormulariCercaComponent, PreferitsPanelComponent],
+  templateUrl: './cataleg-page.component.html',
+  styleUrl: './cataleg-page.component.scss'
 })
-export class LlistaMoviesComponent implements OnInit {
+export class CatalegPageComponent implements OnInit {
 
   public moviesService = inject(MovieService);
   public moviesFiltrades = this.moviesService.movies;
@@ -29,7 +31,6 @@ export class LlistaMoviesComponent implements OnInit {
   }
 
   onCercarMovies(text: string): void {
-    // this.moviesFiltrades = text && text.length >= 3 ? this.movies.filter(movie => movie.name.toLowerCase().includes(text.toLowerCase())) : [...this.movies];
     this.moviesService.cercar(text);
   }
 

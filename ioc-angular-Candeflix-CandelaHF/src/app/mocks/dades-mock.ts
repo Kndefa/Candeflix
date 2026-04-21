@@ -1,6 +1,6 @@
-import { Movie } from "../models/element.model";
+import { Movie } from "../models/movie.model";
 
-export let MockMovies: Movie[] = [
+export const MockMovies: Movie[] = [
   {
     id: '1',
     name: 'Maquina de guerra',

@@ -80,3 +80,63 @@
   max-height: 150px;
 }
 
+.footer-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.movie-score {
+  margin-top: 0;
+  font-size: 0.8rem;
+  color: #46d369;
+  display: flex;
+  align-items: center;
+}
+
+
+.btn-minimal-fav {
+  position: absolute;
+  bottom: 12px; 
+  right: 12px;
+  z-index: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+  transition: transform 0.2s ease;
+
+  .heart-svg {
+    width: 22px;
+    height: 22px;
+    fill: transparent;
+    stroke: white;
+    stroke-width: 1.8px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.15);
+  }
+
+  &.is-favorit {
+    .heart-svg {
+      fill: #e50914;
+      stroke: #e50914;
+      animation: heartBeat 0.4s ease-out;
+    }
+  }
+}
+
+.movie-overlay {
+  pointer-events: none;
+}
+
+.movie-overlay h3, 
+.movie-overlay p, 
+.movie-overlay .movie-score {
+  pointer-events: auto;
+}
