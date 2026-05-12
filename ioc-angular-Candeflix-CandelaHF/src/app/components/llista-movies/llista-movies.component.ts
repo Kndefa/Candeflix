@@ -1,7 +1,6 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { TargetaMovieComponent } from "../targeta-movie/targeta-movie.component";
 import { NgFor, NgIf } from '@angular/common';
-import { BarraCercaComponent } from "../barra-cerca/barra-cerca.component";
 import { MovieService } from '../../services/movie.service';
 import { MovieCataleg } from '../../models';
 

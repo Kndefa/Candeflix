@@ -1,9 +1,9 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { MovieAPIResponse, MovieCataleg } from '../models';
+import { MovieAPIResponse, MovieCataleg, MovieResponse } from '../models';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environment/environment.development';
-import { adaptarMoviesApi } from '../adaptadors/movieCataleg.adaptador';
-import { catchError, map, of, tap } from 'rxjs';
+import { adaptarMoviesApi, adaptarMovieApi } from '../adaptadors/movieCataleg.adaptador';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +74,14 @@ export class MovieService {
         })
       )
       .subscribe();
+  }
+
+  obtenirPerId(id: string): Observable<MovieCataleg | null> {
+    return this.httpClient.get<MovieResponse>(`${this.apiUrl}/results/${id}`)
+      .pipe(
+        map(result => adaptarMovieApi(result)),
+        catchError(() => of(null))
+      );
   }
 
   titolDisponible(titol: string): Promise<boolean> {

@@ -1,0 +1,35 @@
+<div class="pelicula-page">
+  <div class="search-container">
+    <app-formulari-cerca />
+  </div>
+
+  @if (carregant()) {
+    <div class="estat-carregant">
+      <div class="spinner"></div>
+      <p>Carregant pel·lícules...</p>
+    </div>
+  }
+
+  @if (error()) {
+    <div class="error-container">
+      <p>{{ error() }}</p>
+      <button (click)="movieService.obtenirPopulars()">Reintentar</button>
+    </div>
+  }
+
+  <cdk-virtual-scroll-viewport [itemSize]="320" class="virtual-scroll-viewport">
+    <div *cdkVirtualFor="let row of moviesRowGroups(); trackBy: trackByRowIndex" class="movie-row">
+      @for (movie of row; track movie.id) {
+        <div class="movie-item">
+          <app-targeta-movie [movie]="movie"></app-targeta-movie>
+        </div>
+      }
+    </div>
+  </cdk-virtual-scroll-viewport>
+
+  @if (!carregant() && !error() && !teMovies()) {
+    <p class="sense-resultats">No hi ha pel·lícules disponibles.</p>
+  }
+
+  <app-preferits-panel />
+</div>

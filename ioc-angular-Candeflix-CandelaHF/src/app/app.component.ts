@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { LlistaMoviesComponent } from './components/llista-movies/llista-movies.component';
-import { BarraCercaComponent } from "./components/barra-cerca/barra-cerca.component";
-import { CatalegPageComponent } from './components/cataleg-page/cataleg-page.component';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LlistaMoviesComponent, BarraCercaComponent, CatalegPageComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

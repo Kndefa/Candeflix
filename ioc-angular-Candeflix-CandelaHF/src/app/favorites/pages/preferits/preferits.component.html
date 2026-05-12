@@ -1,0 +1,26 @@
+<div class="preferits-page">
+  <h2>Els meus preferits</h2>
+
+  @if (preferits().length === 0) {
+    <div class="sense-preferits">
+      <p>No tens cap pel·lícula als preferits.</p>
+      <a routerLink="/pelicula">Explorar catàleg</a>
+    </div>
+  } @else {
+    <div class="preferits-llista">
+      @for (preferit of preferits(); track preferit.movieId) {
+        <div class="preferit-card">
+          <div class="preferit-info">
+            <h3>{{ preferit.movieNom }}</h3>
+            <p class="data-afegit">Afegit el {{ preferit.dataAfegit | date:'dd/MM/yyyy' }}</p>
+            <p class="notes-count">{{ preferit.notes.length }} notes</p>
+          </div>
+          <div class="preferit-accions">
+            <a [routerLink]="['/detall', preferit.movieId]" class="btn-veure">Veure</a>
+            <button (click)="eliminarPreferit(preferit.movieId)" class="btn-eliminar">Eliminar</button>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

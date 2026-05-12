@@ -1,27 +1,49 @@
-# IocAngularCandeflixCandelaHF
+# Candeflix
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+**Autora:** Candela Hernandez Fano
 
-## Development server
+Aplicació web de catàleg i cerca de pel·lícules. Permet navegar per un llistat de pel·lícules populars, cercar per títol, veure'n els detalls (sinopsi, repartiment, director, preu, estoc, puntuació) i gestionar una llista de preferits amb notes personals.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Mapa de rutes
 
-## Code scaffolding
+| Path | Component | Accés |
+|------|-----------|-------|
+| `/` | Redirecció a `/pelicula` | Públic |
+| `/pelicula` | `PeliculaComponent` | Públic |
+| `/cerca` | `CercaComponent` | Públic |
+| `/detall/:id` | `DetallComponent` | Públic |
+| `/preferits` | `PreferitsComponent` | **Privat** (requereix autenticació) |
+| `/login` | `LoginComponent` | Públic |
+| `/404` | `NotFoundComponent` | Públic |
+| `/**` | Redirecció a `/404` | Públic |
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instruccions d'execució en local
 
-## Build
+```bash
+git clone <url-del-repositori>
+cd Candeflix/ioc-angular-Candeflix-CandelaHF
+npm install
+ng serve
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Obrir [http://localhost:4200](http://localhost:4200)
 
-## Running unit tests
+L'API simulada amb `json-server` s'inicia automàticament amb `ng serve` o manualment amb:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npx json-server tools/api/peliculas.json --port 4301
+```
 
-## Running end-to-end tests
+## Build de producció
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+ng build --configuration production
+```
 
-## Further help
+El build es genera a `dist/ioc-angular-candeflix-candela-hf/browser/`. La mida total del bundle de JavaScript i CSS és d'aproximadament **430 kB**.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Credencials de prova
+
+| Email | Contrasenya |
+|-------|-------------|
+| `admin@test.com` | `1234` |

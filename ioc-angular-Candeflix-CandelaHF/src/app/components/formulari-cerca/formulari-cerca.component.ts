@@ -28,7 +28,7 @@ export class FormulariCercaComponent implements OnInit {
     // Cerca automàtica amb debounce
     this.formulariCerca.get('terme')?.valueChanges
       .pipe(debounceTime(400))
-      .subscribe(terme => {
+      .subscribe(() => {
         if (this.formulariCerca.get('terme')?.valid) {
           this.cercar();
         }

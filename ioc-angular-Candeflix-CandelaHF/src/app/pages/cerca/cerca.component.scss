@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cerca-page {
+  padding-bottom: 40px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 30px 0 10px;
+  color: #fff;
+}
+
+.llista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.movie-item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .movie-item {
+    flex: 0 0 calc(50% - 18px);
+    max-width: calc(50% - 18px);
+  }
+}
+
+@media (min-width: 901px) {
+  .movie-item {
+    flex: 0 0 calc(33.333% - 18px);
+    max-width: calc(33.333% - 18px);
+  }
+}
+
+.estat-carregant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #333;
+    border-top: 3px solid #e50914;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  p {
+    margin-top: 1rem;
+    color: #aaa;
+  }
+}
+
+.error-container {
+  text-align: center;
+  padding: 40px 20px;
+  color: #e50914;
+}
+
+.sense-resultats {
+  text-align: center;
+  padding: 40px 20px;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

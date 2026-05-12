@@ -1,0 +1,39 @@
+<div class="detall-page">
+  <button routerLink="/pelicula" class="btn-tornar">&larr; Tornar</button>
+
+  @if (carregant()) {
+    <div class="estat-carregant">
+      <div class="spinner"></div>
+      <p>Carregant...</p>
+    </div>
+  } @else if (error()) {
+    <div class="error-container">
+      <p>{{ error() }}</p>
+      <button routerLink="/pelicula">Tornar al llistat</button>
+    </div>
+  } @else if (movie()) {
+    <div class="detall-content">
+      <div class="detall-imatge">
+        <img [src]="movie()?.imatgeUrl" [alt]="movie()?.titol">
+      </div>
+      <div class="detall-info">
+        <h2>{{ movie()?.titol | uppercase }}</h2>
+        <p class="detall-descripcio">{{ movie()?.descripcio }}</p>
+        <div class="detall-meta">
+          <span class="puntuacio">⭐ {{ movie()?.puntuacio }}</span>
+          <span class="vots">{{ movie()?.vots }} vots</span>
+          @if (movie()?.data) {
+            <span class="data">Estrena: {{ movie()?.data }}</span>
+          }
+          @if (movie()?.preu) {
+            <span class="preu">{{ movie()?.preu | currency:'EUR' }}</span>
+          }
+        </div>
+        <div class="detall-accions">
+          <button (click)="navegarAnterior()" class="btn-nav">&larr; Anterior</button>
+          <button (click)="navegarSeguent()" class="btn-nav">Següent &rarr;</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

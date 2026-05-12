@@ -1,0 +1,25 @@
+<div class="cerca-page">
+  <h2 class="page-title">Cerca de pel·lícules</h2>
+  <app-formulari-cerca />
+
+  @if (carregant()) {
+    <div class="estat-carregant">
+      <div class="spinner"></div>
+      <p>Cercant...</p>
+    </div>
+  } @else if (error()) {
+    <div class="error-container">
+      <p>{{ error() }}</p>
+    </div>
+  } @else if (teMovies()) {
+    <div class="llista">
+      @for (movie of movies(); track trackByMovieId($index, movie)) {
+        <div class="movie-item">
+          <app-targeta-movie [movie]="movie"></app-targeta-movie>
+        </div>
+      }
+    </div>
+  } @else {
+    <p class="sense-resultats">Cerca una pel·lícula per veure resultats.</p>
+  }
+</div>

@@ -1,12 +1,14 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { MovieCataleg } from '../../models';
 import { PreferitsService } from '../../services/preferits.service';
 
 @Component({
   selector: 'app-targeta-movie',
   standalone: true,
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, RouterLink],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './targeta-movie.component.html',
   styleUrl: './targeta-movie.component.scss'
 })

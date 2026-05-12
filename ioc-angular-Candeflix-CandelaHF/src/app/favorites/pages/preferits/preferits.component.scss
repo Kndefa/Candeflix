@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  min-height: 80vh;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.preferits-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+}
+
+.sense-preferits {
+  text-align: center;
+  padding: 60px 20px;
+
+  p {
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #e50914;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+
+    &:hover {
+      background: #f6121d;
+    }
+  }
+}
+
+.preferits-llista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preferit-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #1f1f1f;
+  border-radius: 6px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #2a2a2a;
+  }
+}
+
+.preferit-info {
+  h3 {
+    font-size: 1rem;
+    margin: 0 0 4px;
+  }
+
+  .data-afegit {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin: 0 0 2px;
+  }
+
+  .notes-count {
+    font-size: 0.8rem;
+    color: #e50914;
+    margin: 0;
+  }
+}
+
+.preferit-accions {
+  display: flex;
+  gap: 8px;
+
+  .btn-veure {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid #e50914;
+    color: #e50914;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #e50914;
+      color: #fff;
+    }
+  }
+
+  .btn-eliminar {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid #555;
+    color: #aaa;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: #e50914;
+      color: #e50914;
+    }
+  }
+}

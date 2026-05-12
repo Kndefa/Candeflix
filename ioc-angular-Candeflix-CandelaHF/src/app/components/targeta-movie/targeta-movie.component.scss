@@ -1,3 +1,8 @@
+.movie-card-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
 .movie-card {
   position: relative;
   width: 200px;
@@ -49,16 +54,16 @@
   color: #46d369;
 }
 
-.movie-card:hover {
+.movie-card-link:hover .movie-card {
   transform: scale(1.15);
   z-index: 10;
 }
 
-.movie-card:hover img {
+.movie-card-link:hover .movie-card img {
   transform: scale(1.1);
 }
 
-.movie-card:hover .movie-overlay {
+.movie-card-link:hover .movie-overlay {
   opacity: 1;
   transform: translateY(0);
 }

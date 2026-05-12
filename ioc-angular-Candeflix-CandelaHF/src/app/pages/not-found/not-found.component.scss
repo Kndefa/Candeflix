@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.not-found {
+  text-align: center;
+
+  h1 {
+    font-size: 6rem;
+    color: #e50914;
+    margin: 0;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin: 20px 0 30px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #e50914;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f6121d;
+    }
+  }
+}

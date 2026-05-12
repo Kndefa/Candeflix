@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header-container">
+    <a routerLink="/pelicula" class="logo">Candeflix</a>
+    <nav class="nav-links">
+      <a routerLink="/pelicula" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Pel·lícules</a>
+      <a routerLink="/cerca" routerLinkActive="active">Cerca</a>
+      <a routerLink="/preferits" routerLinkActive="active">Preferits</a>
+      @if ((usuari$ | async); as usuari) {
+        <span class="usuari-nom">{{ usuari.nom }}</span>
+        <button (click)="logout()" class="logout-btn">Tancar sessió</button>
+      } @else {
+        <a routerLink="/login" routerLinkActive="active">Iniciar sessió</a>
+      }
+    </nav>
+  </div>
+</header>
